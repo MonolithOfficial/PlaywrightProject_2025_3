@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+
+<!--BEFORE SUITE-->
+<suite name="crossBrowser" parallel="tests" thread-count="2">
+        <test name="firefoxTest">
+            <parameter name="browserType" value="webkit"/>
+            <classes>
+                <class name="ge.tbc.testautomation.tests.SuccessfulPurchaseScenarioTest">
+                </class>
+            </classes>
+        </test>
+
+    <test name="chromeTest">
+        <parameter name="browserType" value="chrome"/>
+        <classes>
+            <class name="ge.tbc.testautomation.tests.SuccessfulPurchaseScenarioTest"/>
+        </classes>
+    </test>
+</suite>
+        <!--AFTER SUITE-->

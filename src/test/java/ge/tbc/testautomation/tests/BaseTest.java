@@ -25,13 +25,18 @@ public class BaseTest {
     OverviewSteps overviewSteps;
 
     @BeforeClass
-    public void initializeSteps(){
+    @Parameters("browserType")
+    public void initializeSteps(String browserType){
         playwright = Playwright.create();
 
         BrowserType.LaunchOptions launchOptions = new BrowserType.LaunchOptions();
         launchOptions.setHeadless(false);
 
-        browser = playwright.chromium().launch(launchOptions);
+        if (browserType.equalsIgnoreCase("webkit")){
+            browser = playwright.webkit().launch(launchOptions);
+        } else if (browserType.equalsIgnoreCase("chrome")) {
+            browser = playwright.chromium().launch(launchOptions);
+        }
 
         context = browser.newContext();
 //        ADBLOCKER
