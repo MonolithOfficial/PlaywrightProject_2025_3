@@ -1,5 +1,7 @@
 package ge.tbc.testautomation.tests;
 
+import io.qameta.allure.*;
+import jdk.jfr.Description;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.testng.annotations.*;
@@ -7,13 +9,14 @@ import org.testng.annotations.*;
 
 //@Listeners({CustomTestListener.class})
 @Test(groups = {"E2E - successful product purchase - SCRUM-T18", "selenide_scenarios"})
+@Description("Successful Purchase Scenario")
+@Link("https://atlassian.net/scenario")
+@Severity(SeverityLevel.BLOCKER)
+@Epic("Transactions")
+@Feature("Purchase product")
+@Story("Successful product purchase")
 public class SuccessfulPurchaseScenarioTest extends BaseTest{
     private static final Logger logger = LogManager.getLogger();
-
-    @BeforeClass
-    public void setUp() {
-
-    }
 
     @Test(description = "Login as standard user", priority = 1)
     public void loginAsStandardUser() {
